@@ -2,18 +2,17 @@
 # Assignment:
 # Create a class decorator add_greeting that modifies a class to add a greet() method returning "Hello from Decorator!". Apply it to a class Person.
 
-class Decorator():
-    def add_greeting():
-        print("Hello from Decorator!")
-        
-    return add_greeting
-
+def add_greeting(cls):
+    def greet(self):
+        return "Hello from Decorator!"
+    cls.greet = greet
+    
+    return cls
 @add_greeting
-    def greet():
-        print("hello")
+class Person():
+    def __init__(self, name):
+        self. name = name
         
+p1 = Person("Muhammad")
 
-c1 = Decorator()
-Decorator(greet())        
-        
-        
+print(p1.greet())        
